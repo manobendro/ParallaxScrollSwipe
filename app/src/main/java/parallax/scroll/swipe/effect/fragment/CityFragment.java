@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import parallax.scroll.swipe.effect.R;
+import parallax.scroll.swipe.effect.customview.ObservableScrollView;
 import parallax.scroll.swipe.effect.model.City;
 
 /**
@@ -33,7 +33,7 @@ public class CityFragment extends Fragment {
     private ImageView imageView;
     private TextView nameTxtVw;
     private TextView descriptionTxtVw;
-    private ScrollView scrollView;
+    private ObservableScrollView scrollView;
 
 
     private OnFragmentInteractionListener mListener;
@@ -84,13 +84,20 @@ public class CityFragment extends Fragment {
 
         descriptionTxtVw.setText(city.getDescription());
 
-        scrollView = (ScrollView) view.findViewById(R.id.scrollView);
+        scrollView = (ObservableScrollView) view.findViewById(R.id.scrollView);
 
+        scrollView.setScrollViewListener(new ObservableScrollView.ScrollViewListener() {
+            @Override
+            public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
 
+                View view = scrollView.findViewById(R.id.imageView);
 
+                if(view!=null){
+                    view.setTranslationY(scrollView.getScrollY() / 2);
+                }
 
-
-
+            }
+        });
 
         return  view;
     }
