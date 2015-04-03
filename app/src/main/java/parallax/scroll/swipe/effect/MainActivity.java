@@ -10,17 +10,17 @@ import android.view.View;
 import java.util.ArrayList;
 
 import parallax.scroll.swipe.effect.adapter.ViewPagerAdapter;
-import parallax.scroll.swipe.effect.fragment.PlaceFragment;
-import parallax.scroll.swipe.effect.model.Place;
+import parallax.scroll.swipe.effect.fragment.CityFragment;
+import parallax.scroll.swipe.effect.model.City;
 
 
-public class MainActivity extends FragmentActivity implements PlaceFragment.OnFragmentInteractionListener {
+public class MainActivity extends FragmentActivity implements CityFragment.OnFragmentInteractionListener {
 
     private ViewPager pager;
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
-    private ArrayList<Place>  placeList = new ArrayList<>();
+    private ArrayList<City> cityList = new ArrayList<>();
 
     private ViewPagerAdapter adapter;
 
@@ -29,24 +29,24 @@ public class MainActivity extends FragmentActivity implements PlaceFragment.OnFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        placeList.add(new Place("London", "", R.drawable.london));
-        placeList.add(new Place("Bangkok", "", R.drawable.bangkok));
-        placeList.add(new Place("Paris", "", R.drawable.paris));
-        placeList.add(new Place("Singapore", "", R.drawable.singapore));
-        placeList.add(new Place("New York", "", R.drawable.newyork));
-        placeList.add(new Place("Istanbul", "", R.drawable.istanbul));
-        placeList.add(new Place("Hong kong", "", R.drawable.hongkong));
-        placeList.add(new Place("Barcelona", "", R.drawable.barcelona));
-        placeList.add(new Place("Amsterdam", "", R.drawable.amsterdam));
-        placeList.add(new Place("Rome", "", R.drawable.barcelona));
-        placeList.add(new Place("Vienna", "", R.drawable.vienna));
-        placeList.add(new Place("Milan", "", R.drawable.milan));
+        cityList.add(new City("London", getString(R.string.london), R.drawable.london));
+        cityList.add(new City("Bangkok", getString(R.string.bangkok), R.drawable.bangkok));
+        cityList.add(new City("Paris", getString(R.string.paris), R.drawable.paris));
+        cityList.add(new City("Singapore", getString(R.string.singapore), R.drawable.singapore));
+        cityList.add(new City("New York", getString(R.string.newyork), R.drawable.newyork));
+        cityList.add(new City("Istanbul", getString(R.string.istanbul), R.drawable.istanbul));
+        cityList.add(new City("Hong kong", getString(R.string.hongkong), R.drawable.hongkong));
+        cityList.add(new City("Barcelona", getString(R.string.barcelona), R.drawable.barcelona));
+        cityList.add(new City("Amsterdam", getString(R.string.amsterdam), R.drawable.amsterdam));
+        cityList.add(new City("Rome", getString(R.string.rome), R.drawable.rome));
+        cityList.add(new City("Vienna", getString(R.string.vienna), R.drawable.vienna));
+        cityList.add(new City("Milan", getString(R.string.milan), R.drawable.milan));
 
 
         pager = (ViewPager) findViewById(R.id.viewpager);
 
         for(int i= 0; i< 12; i++) {
-            PlaceFragment fragment = PlaceFragment.newInstance(placeList.get(i));
+            CityFragment fragment = CityFragment.newInstance(cityList.get(i));
             fragments.add(fragment);
         }
 

@@ -6,12 +6,12 @@ import android.os.Parcelable;
 /**
  * Created by jiku on 2015-04-03.
  */
-public class Place implements Parcelable{
+public class City implements Parcelable{
     private String name;
     private String description;
     private int imageResourceId;
 
-    public Place(String name, String description, int imageResourceId){
+    public City(String name, String description, int imageResourceId){
         this.name = name;
         this.description = description;
         this.imageResourceId = imageResourceId;
@@ -34,7 +34,7 @@ public class Place implements Parcelable{
         return 0;
     }
 
-    private Place(Parcel in) {
+    private City(Parcel in) {
         this.name  = in.readString();
         this.description = in.readString();
         this.imageResourceId = in.readInt();
@@ -47,13 +47,13 @@ public class Place implements Parcelable{
         dest.writeInt(this.imageResourceId);
     }
 
-    public static final Creator<Place> CREATOR = new Creator<Place>() {
-        public Place createFromParcel(Parcel in) {
-            return new Place(in);
+    public static final Creator<City> CREATOR = new Creator<City>() {
+        public City createFromParcel(Parcel in) {
+            return new City(in);
         }
 
-        public Place[] newArray(int size) {
-            return new Place[size];
+        public City[] newArray(int size) {
+            return new City[size];
         }
     };
 }

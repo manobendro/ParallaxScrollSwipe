@@ -8,29 +8,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import parallax.scroll.swipe.effect.R;
-import parallax.scroll.swipe.effect.model.Place;
+import parallax.scroll.swipe.effect.model.City;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PlaceFragment.OnFragmentInteractionListener} interface
+ * {@link CityFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PlaceFragment#newInstance} factory method to
+ * Use the {@link CityFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlaceFragment extends Fragment {
+public class CityFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "city";
 
 
     // TODO: Rename and change types of parameters
-    private Place place;
+    private City city;
     private ImageView imageView;
-    private TextView textView;
+    private TextView nameTxtVw;
+    private TextView descriptionTxtVw;
+    private ScrollView scrollView;
 
 
     private OnFragmentInteractionListener mListener;
@@ -39,19 +42,19 @@ public class PlaceFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param place Parameter 1.
+     * @param city Parameter 1.
      * @return A new instance of fragment CityFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PlaceFragment newInstance(Place place) {
-        PlaceFragment fragment = new PlaceFragment();
+    public static CityFragment newInstance(City city) {
+        CityFragment fragment = new CityFragment();
         Bundle args = new Bundle();
-        args.putParcelable(ARG_PARAM1, place);
+        args.putParcelable(ARG_PARAM1, city);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public PlaceFragment() {
+    public CityFragment() {
         // Required empty public constructor
     }
 
@@ -59,7 +62,7 @@ public class PlaceFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            place = getArguments().getParcelable(ARG_PARAM1);
+            city = getArguments().getParcelable(ARG_PARAM1);
         }
     }
 
@@ -71,11 +74,21 @@ public class PlaceFragment extends Fragment {
 
         imageView = (ImageView) view.findViewById(R.id.imageView);
 
-        textView = (TextView) view.findViewById(R.id.name);
+        imageView.setImageResource(city.getImageResourceId());
 
-        textView.setText(place.getName());
+        nameTxtVw = (TextView) view.findViewById(R.id.name);
 
-        imageView.setImageResource(place.getImageResourceId());
+        nameTxtVw.setText(city.getName());
+
+        descriptionTxtVw = (TextView) view.findViewById(R.id.description);
+
+        descriptionTxtVw.setText(city.getDescription());
+
+        scrollView = (ScrollView) view.findViewById(R.id.scrollView);
+
+
+
+
 
 
 
