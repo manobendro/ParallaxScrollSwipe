@@ -29,16 +29,23 @@ public class MainActivity extends FragmentActivity implements PlaceFragment.OnFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        placeList.add(new Place("Eiffel tower", "", R.drawable.effel));
+        placeList.add(new Place("London", "", R.drawable.london));
+        placeList.add(new Place("Bangkok", "", R.drawable.bangkok));
+        placeList.add(new Place("Paris", "", R.drawable.paris));
+        placeList.add(new Place("Singapore", "", R.drawable.singapore));
+        placeList.add(new Place("New York", "", R.drawable.newyork));
+        placeList.add(new Place("Istanbul", "", R.drawable.istanbul));
+        placeList.add(new Place("Hong kong", "", R.drawable.hongkong));
+        placeList.add(new Place("Barcelona", "", R.drawable.barcelona));
+        placeList.add(new Place("Amsterdam", "", R.drawable.amsterdam));
+        placeList.add(new Place("Rome", "", R.drawable.barcelona));
+        placeList.add(new Place("Vienna", "", R.drawable.vienna));
+        placeList.add(new Place("Milan", "", R.drawable.milan));
 
-        for(int i=0; i< 9; i++){
-            Place place = new Place("Eiffel tower", "", R.drawable.effel);
-            placeList.add(place);
-        }
 
         pager = (ViewPager) findViewById(R.id.viewpager);
 
-        for(int i= 0; i< 10; i++) {
+        for(int i= 0; i< 12; i++) {
             PlaceFragment fragment = PlaceFragment.newInstance(placeList.get(i));
             fragments.add(fragment);
         }

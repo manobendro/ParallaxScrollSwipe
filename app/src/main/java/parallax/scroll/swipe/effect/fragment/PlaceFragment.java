@@ -71,7 +71,7 @@ public class PlaceFragment extends Fragment {
 
         imageView = (ImageView) view.findViewById(R.id.imageView);
 
-        textView = (TextView) view.findViewById(R.id.textView);
+        textView = (TextView) view.findViewById(R.id.name);
 
         textView.setText(place.getName());
 
